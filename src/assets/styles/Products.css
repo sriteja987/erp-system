@@ -1,0 +1,39 @@
+/* products.css */
+
+.square-card {
+  width: 200px; 
+  height: 250px;
+  background-color: #fff;
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.square-card:hover {
+  transform: scale(1.02); /* Scale up on hover for an interactive effect */
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* Style for delete and edit buttons */
+.action-buttons button {
+  padding: 0.5rem 1rem;
+  background-color: #1a202c; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px; /* Add rounded corners to buttons */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.action-buttons button:hover {
+  background-color: #2d3748; /* Darker background on hover */
+}

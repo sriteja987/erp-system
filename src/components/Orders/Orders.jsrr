@@ -1,0 +1,104 @@
+// Orders.js
+import React, { useState, useEffect } from 'react';
+import { getFirestore, collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import app from '../../firebase';
+import OrderDetailsModal from './OrderDetailsModal';
+import ChangeStatusModal from './ChangeStatusModal';
+import Calendar from '../Calendar/Calendar';
+
+const Orders = () => {
+  const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [isOrderDetailsModalOpen, setOrderDetailsModalOpen] = useState(false);
+  const [isChangeStatusModalOpen, setChangeStatusModalOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const db = getFirestore(app);
+      const ordersCollection = collection(db, 'Orders');
+
+      try {
+        const ordersSnapshot = await getDocs(ordersCollection);
+        const ordersData = ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setOrders(ordersData);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
+  const handleViewOrderDetails = (order) => {
+    setSelectedOrder(order);
+    setOrderDetailsModalOpen(true);
+  };
+
+  const handleUpdateOrderStatus = (order) => {
+    setSelectedOrder(order);
+    setChangeStatusModalOpen(true);
+  };
+
+  const handleDeleteOrder = async (orderId) => {
+    const db = getFirestore(app);
+    const orderRef = doc(db, 'Orders', orderId);
+
+    try {
+      await deleteDoc(orderRef);
+      const updatedOrders = orders.filter(order => order.id !== orderId);
+      setOrders(updatedOrders);
+      console.log(`Order ID ${orderId} deleted.`);
+    } catch (error) {
+      console.error('Error deleting order:', error);
+    }
+  };
+
+  const handleStatusChange = (orderId, newStatus) => {
+    // Find the order in the state and update its status
+    const updatedOrders = orders.map(order =>
+      order.id === orderId ? { ...order, status: newStatus } : order
+    );
+    setOrders(updatedOrders);
+  };
+
+  return (
+    <div className="container mx-auto mt-8">
+      <h2 className="text-2xl font-bold mb-4">Orders Management</h2>
+
+      <div className="flex">
+        {/* Left side: Calendar */}
+        <div className="w-1/2 pr-4">
+          <Calendar orders={orders} onSelectOrder={handleViewOrderDetails} />
+        </div>
+
+        {/* Right side: Order Details */}
+        <div className="w-1/2">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {orders.map((order) => (
+              <li key={order.id} className="bg-white p-6 rounded-lg shadow-md">
+                {/* Your existing code */}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Order Details Modal */}
+      <OrderDetailsModal
+        isOpen={isOrderDetailsModalOpen}
+        onClose={() => setOrderDetailsModalOpen(false)}
+        order={selectedOrder}
+      />
+
+      {/* Change Status Modal */}
+      <ChangeStatusModal
+        isOpen={isChangeStatusModalOpen}
+        onClose={() => setChangeStatusModalOpen(false)}
+        orderId={selectedOrder?.id}
+        onStatusChange={handleStatusChange}
+      />
+    </div>
+  );
+};
+
+export default Orders;
