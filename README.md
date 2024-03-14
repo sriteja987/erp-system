@@ -33,20 +33,20 @@ npm install
 ```
 3. Update the firebase.js file with project details
 
-- First create the project in Firebase
-- Add firestore to your project
-- Create below colections ```Orders``` and ```Products```
-- Orders have below fields
-    - id
-    - customer_name
-    - order_date
-    - status
-- Products have below fields
-    - id
-    - name
-    - price
-    - stock
-    - category
+    - First create the project in Firebase
+    - Add firestore to your project
+    - Create Two colections ```Orders``` and ```Products```
+    - Orders have below fields
+        - id
+        - customer_name
+        - order_date
+        - status
+    - Products have below fields
+        - id
+        - name
+        - price
+        - stock
+        - category
 
 ## Usage
 
