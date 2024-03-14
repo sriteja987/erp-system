@@ -1,4 +1,4 @@
-# My Awesome Calendar App
+# React ERP System
 
 This is an awesome calendar app built with React and FullCalendar.
 
