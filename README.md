@@ -31,7 +31,7 @@ git clone https://github.com/sriteja987/erp-system.git
 cd erp-system
 npm install
 ```
-3. Update the firebase.js file with project details
+3. Update the ```src/firebase.js``` file with project details
 
     - First create the project in Firebase
     - Add firestore to your project
