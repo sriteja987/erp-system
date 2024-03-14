@@ -1,6 +1,6 @@
 # React ERP System
 
-This is an awesome calendar app built with React and FullCalendar.
+----------------------------------------------
 
 ## Table of Contents
 
@@ -8,7 +8,6 @@ This is an awesome calendar app built with React and FullCalendar.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
