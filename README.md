@@ -1,5 +1,5 @@
 ```markdown
-# ERP SYSTEM
+# My Awesome Calendar App
 
 This is an awesome calendar app built with React and FullCalendar.
 
@@ -60,3 +60,4 @@ To contribute:
 3. Make your changes and commit them (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new pull request.
+```
