@@ -22,15 +22,31 @@ This is an awesome calendar app built with React and FullCalendar.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/awesome-calendar-app.git
+git clone https://github.com/sriteja987/erp-system.git
 ```
 
 2. Install dependencies:
 
 ```bash
-cd awesome-calendar-app
+cd erp-system
 npm install
 ```
+3. Update the firebase.js file with project details
+
+- First create the project in Firebase
+- Add firestore to your project
+- Create below colections ```Orders``` and ```Products```
+- Orders have below fields
+    - id
+    - customer_name
+    - order_date
+    - status
+- Products have below fields
+    - id
+    - name
+    - price
+    - stock
+    - category
 
 ## Usage
 
