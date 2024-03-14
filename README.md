@@ -12,10 +12,11 @@ This is an awesome calendar app built with React and FullCalendar.
 
 ## Features
 
-- Display orders on a calendar
-- View order details for a selected date
-- Add, edit, and delete orders
-- Responsive design
+- Dashboard
+- View Orders and Order details in ```/Orders``` page
+- Modify Order Status and Delete
+- View Products and details in ```/Products``` page
+- Add, Update, Delete Products Details
 
 ## Installation
 
