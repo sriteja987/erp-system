@@ -58,7 +58,9 @@ npm start
 
 2. Open your browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
 
-3. Navigate to the Calendar page to view the calendar with orders.
+3. Navigate to the products page([http://localhost:3000/Products](http://localhost:3000/Products)) to view the Products Page.
+
+4. Navigate to the Orders page([http://localhost:3000/Orders](http://localhost:3000/Orders)) to view the Orders Details
 
 ## Contributing
 
